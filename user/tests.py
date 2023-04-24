@@ -12,9 +12,9 @@ class UserTest(TestCase):
     def setUpTestData(cls):
         User.objects.create(
             email="test_login@naver.com",
-            nickname="test_nickname",
+            nickname="test_login_nickname",
             name="test_name",
-            password="test_password",
+            password=make_password("test_password"),
             profile_image="default_profile.png"
         )
 
@@ -28,7 +28,7 @@ class UserTest(TestCase):
             email="test_email@naver.com",
             nickname="test_nickname",
             name="test_name",
-            password=make_password("test_password")))
+            password="test_password"))
 
         self.assertEqual(response.status_code, 200)
 
